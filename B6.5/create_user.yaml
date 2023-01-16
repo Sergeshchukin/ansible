@@ -1,0 +1,32 @@
+---
+- hosts: all
+  tasks:
+    #User
+    - name: Create user
+      user:
+        name: user1
+        shell: /bin/bash
+      become: yes
+     #Ssh dir
+    - name: Ensure ssh directory
+      file:
+        dest: "/home/user1/.ssh"
+        mode: 0700
+        owner: user1
+        state: directory
+      become: yes
+     #Copy ssh key
+    - name: Install ssh key
+      copy:
+        src: "test_key_vault"
+        dest: "/home/user1/.ssh/id_rsa"
+        mode: 0600
+        owner: user1
+      become: yes
+    - name: Install ssh pub key
+      copy:
+        src: "test_key_vault.pub"
+        dest: "/home/user1/.ssh/id_rsa.pub"
+        mode: 0600
+        owner: user1
+      become: yes
