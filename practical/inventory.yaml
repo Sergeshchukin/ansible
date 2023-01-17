@@ -1,0 +1,10 @@
+[app]
+vm2 ansible_ssh_host=130.193.51.166 ansible_user=ansible
+vm3 ansible_ssh_host=158.160.53.57 ansible_user=ansible
+
+[database]
+vm1 ansible_ssh_host=158.160.35.170 ansible_user=ansible psql_version=12 data_dir=/psql/data
+
+[web]
+vm1 ansible_ssh_host=158.160.35.170 ansible_user=ansible
+"/etc/ansible/hosts" 52L, 1305B                     
